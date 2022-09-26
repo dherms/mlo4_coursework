@@ -45,7 +45,7 @@ Outputs:
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
   FaceSentimentFunction:
     Description: "Face Sentiment Analysis Lambda Function ARN"
-    Value: !GetAtt FaceSentimentFunction.Arn
+    Value: !GetAtt DGHIFaceSentimentFunction.Arn
   FaceSentimentFunctionIamRole:
     Description: "Implicit IAM Role created"
-    Value: !GetAtt FaceSentimentFunctionRole.Arn
+    Value: !GetAtt DGHIFaceSentimentFunctionRole.Arn
