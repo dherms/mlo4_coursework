@@ -50,15 +50,17 @@ class DeepLabModel(object):
         #If the query is "bokeh" we blur the background, if we get a different query we crawl google for an image
         if query != 'bokeh':
             #We create a folder to download the image. We need try-except if the folder already exists
-            try:
-                os.mkdir(query)
-            except:
-                pass
+            #try:
+            #    os.mkdir(query)
+            #except:
+            #    pass
             #We run the crawler and download 1 image: https://pypi.org/project/icrawler/
             google_crawler = GoogleImageCrawler(storage={'root_dir': f'/tmp/{query}'})
             google_crawler.crawl(keyword=query, max_num=1)
             #We load the saved image
             background = cv2.imread(f'/tmp/{query}/000001.jpg')
+            if str(type(background)) == "<class 'NoneType'>":
+                background = cv2.imread(f'/tmp/{query}/000001.png')
             #We get the background size
             x, y, c = background.shape
             #We resize the background in order to match the original image but keeping aspect ratio
