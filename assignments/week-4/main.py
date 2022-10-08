@@ -11,6 +11,9 @@ app = FastAPI(title='Service')
 @app.get("/", tags=["Health Check"])
 async def root():
     bokeh_response = requests.get("http://face-bokeh:8000/")
-    #emotion_response = requests.get("http://face-emotion:8000/")
-    return bokeh_response.json
-#to receive both (face-bokeh and face-emotion)
+    emotion_response = requests.get("http://face-emotion:8000/")
+    response = {
+        "face-bokeh": bokeh_response.json()["message"],
+        "face-emotion": emotion_response.json()["message"]
+    }
+    return response
