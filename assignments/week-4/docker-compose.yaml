@@ -10,8 +10,8 @@ services:
   face-bokeh:
     build: ./face-bokeh
     ports:
-      - "8000:8001"
+      - "8001:8001"
   face-emotion:
     build: ./face-emotion
     ports:
-      - "8000:8002"
+      - "8002:8002"
