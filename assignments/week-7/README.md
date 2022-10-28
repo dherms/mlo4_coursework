@@ -318,7 +318,7 @@ Targets may be statically configured via the static_configs parameter or dynamic
 * Reload your docker compose stack to take advantage of the recent changes.
 *  Head to prometheus UI and check whether you are pulling data.
 * Play around with Triton servers metrics
-<https://github.com/triton-inference-server/server/blob/main/docs/metrics.md>
+<https://github.com/triton-inference-server/server/blob/main/docs/user_guide/metrics.md>
 
 
 
